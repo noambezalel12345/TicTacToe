@@ -11,10 +11,96 @@
         android:id="@+id/btn_00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
         android:onClick="onButtonClick"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="5dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
+    <Button
+        android:id="@+id/btn_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
+        android:onClick="onButtonClick"
+        app:layout_constraintEnd_toStartOf="@+id/btn_00"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/btn_00"
+        app:layout_constraintTop_toTopOf="@+id/btn_00"
+        />
 
+    <Button
+        android:id="@+id/btn_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
+        android:onClick="onButtonClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@+id/btn_01"
+        app:layout_constraintTop_toTopOf="@+id/btn_01"
+        />
+<!--
+    <Button
+        android:id="@+id/btn_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
+        android:onClick="onButtonClick"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="298dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <Button
+        android:id="@+id/btn_11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
+        android:onClick="onButtonClick"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="179dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <Button
+        android:id="@+id/btn_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
+        android:onClick="onButtonClick"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <Button
+        android:id="@+id/btn_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
+        android:onClick="onButtonClick"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="298dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <Button
+        android:id="@+id/btn_21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
+        android:onClick="onButtonClick"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="179dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <Button
+        android:id="@+id/btn_22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="tic tac toe"
+        android:onClick="onButtonClick"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="211dp" />
+        -->
 </androidx.constraintlayout.widget.ConstraintLayout>
