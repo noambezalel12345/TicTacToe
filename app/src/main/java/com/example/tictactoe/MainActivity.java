@@ -2,6 +2,7 @@ package com.example.tictactoe;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -36,39 +36,38 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
-
         });
-
+        onNewGame();
     }
 
     public void onButtonClick(View view) {
+        Log.e("onButtonClick", "line 43");
         if(view.getId() == R.id.btn_00)
             handleClick(0,0,R.id.btn_00);
-        
+
         if(view.getId() == R.id.btn_01)
-            handleClick(0,0,R.id.btn_01);
+            handleClick(0,1,R.id.btn_01);
 
         if(view.getId() == R.id.btn_02)
-            handleClick(0,0,R.id.btn_02);
+            handleClick(0,2,R.id.btn_02);
 
         if(view.getId() == R.id.btn_10)
-            handleClick(0,0,R.id.btn_10);
+            handleClick(1,0,R.id.btn_10);
 
         if(view.getId() == R.id.btn_11)
-            handleClick(0,0,R.id.btn_11);
+            handleClick(1,1,R.id.btn_11);
 
         if(view.getId() == R.id.btn_12)
-            handleClick(0,0,R.id.btn_12);
+            handleClick(1,2,R.id.btn_12);
 
         if(view.getId() == R.id.btn_20)
-            handleClick(0,0,R.id.btn_20);
+            handleClick(2,0,R.id.btn_20);
 
         if(view.getId() == R.id.btn_21)
-            handleClick(0,0,R.id.btn_21);
+            handleClick(2,1,R.id.btn_21);
 
         if(view.getId() == R.id.btn_22)
-            handleClick(0,0,R.id.btn_22);
+            handleClick(2,2,R.id.btn_22);
     }
 
     private void handleClick(int row, int col, int id) {
@@ -79,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             onTurnEnd();
         }
     }
-
     private void onTurnEnd() {
         if (isWinner())
             endGame(turn + " won!");
@@ -96,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     private void endGame(String s) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("More info");
-        String msg = "this is the message body";
+        String msg = s;
         builder.setMessage(msg);
         AlertDialog.Builder builder1 = builder.setPositiveButton("exit", new DialogInterface.OnClickListener() {
             @Override
