@@ -1,10 +1,12 @@
 package com.example.tictactoe;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -79,6 +81,51 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onTurnEnd() {
+        if (isWinner())
+            endGame(turn + " won!");
+        else {
+            count++;
+            if (count == 9)
+                endGame("Tie");
+            else {
+                turn = (turn.equals("X") ? "O" : "X");
+            }
+        }
     }
 
+    private void endGame(String s) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("More info");
+        String msg = "this is the message body";
+        builder.setMessage(msg);
+        AlertDialog.Builder builder1 = builder.setPositiveButton("exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Exit Handling
+            }
+        });
+        builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Cancel Handling
+            }
+        });
+        AlertDialog dialog = builder.show();
+    }
+
+    private boolean isWinner() {
+        for(int row=0;row<3;row++){
+            if(board[row][0].equals(board[row][1]) && board[row][1].equals(board[row][2]) && !board[row][0].equals(""))
+                return true;
+        }
+        for(int col=0;col<3;col++){
+            if(board[0][col].equals(board[1][col]) && board[1][col].equals(board[2][col]) && !board[0][col].equals(""))
+                return true;
+        }
+        if(board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) && !board[0][0].equals(""))
+            return true;
+        if(board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && !board[0][2].equals(""))
+            return true;
+        return false;
+    }
 }
